@@ -1,14 +1,31 @@
 public class VendingMachine {
 
-    private final Kasa kasa;
-    private final Produkty produkty;
+    private final CashBox cashBox;
+    private final Products products;
 
-    VendingMachine(Kasa kasa, Produkty produkty){
-        this.kasa = kasa;
-        this.produkty = produkty;
+    VendingMachine(CashBox cashBox, Products products){
+        this.cashBox = cashBox;
+        this.products = products;
     }
 
     public String execute(String input) {
-        return null;
+        for(int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'D') {
+                cashBox.insertDollar();
+            }
+            if (input.charAt(i) == 'Q') {
+                cashBox.insertQuarter();
+            }
+            if (input.charAt(i) == 'd') {
+                cashBox.insertDime();
+            }
+            if (input.charAt(i) == 'N') {
+                cashBox.insertNickel();
+            }
+            if (input.charAt(i) == 'P') {
+                cashBox.insertPenny();
+            }
+        }
+        return cashBox.returnMoney();
     }
 }
